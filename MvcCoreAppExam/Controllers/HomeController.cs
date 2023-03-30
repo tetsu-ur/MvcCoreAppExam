@@ -23,6 +23,14 @@ namespace MvcCoreAppExam.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult GetServerMessage()
+        {
+            var viewModel = new IndexViewModel();
+            viewModel.ServerMessage = $"現在のサーバ時刻は{DateTime.Now}です。";
+            return View("Index", viewModel);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

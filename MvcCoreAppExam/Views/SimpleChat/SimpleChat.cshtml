@@ -1,0 +1,56 @@
+﻿@model MvcCoreAppExam.Models.SimpleChatViewModel
+@*
+    Simple Chat 画面
+
+    .Net MVC によるシンプルなチャットアプリケーションの練習
+*@
+@{
+}
+
+<div>
+    @using (Html.BeginForm("SendMessage", "SimpleChat", FormMethod.Post, new { id = "InputForm" }))
+    {
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="InputUserName" class="col-form-label">ユーザ名</label>
+            </div>
+            <div class="col-auto">
+                <input id="InputUserName" name="InputUserName" class="form-control">
+            </div>
+        </div>
+
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="InputMessage" class="col-form-label">メッセージ</label>
+            </div>
+            <div class="col-auto">
+                <input id="InputMessage" name="InputMessage" class="form-control">
+            </div>
+        </div>
+        <button type="button" id="TestButton" class="btn btn-primary"
+                onclick="$('#InputForm').submit()">
+            送信
+        </button>
+    }
+
+    @if (Model != null)
+    {
+        foreach (MessageListItem listItem in Model.MessageList)
+        {
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <span>@listItem.SendTime</span>
+                </div>
+                <div class="col-auto">
+                    <span>@listItem.UserName</span>
+                </div>
+                <div class="col-auto">
+                    <span>@listItem.Message</span>
+                </div>
+            </div>
+        }
+
+    }
+
+
+</div>

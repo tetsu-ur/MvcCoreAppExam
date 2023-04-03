@@ -11,7 +11,7 @@
 <div>
     @using (Html.BeginForm("GetServerMessage", "Home", FormMethod.Post))
     {
-        <input id="TestButton" type="submit" title="サーバメッセージを表示" value="Test"/>
+        <input id="TestButton" type="submit" value="サーバメッセージを表示" />
     }
     @if (Model != null)
     {

@@ -7,7 +7,50 @@
 @{
 }
 
-<div>
+<div class="main-container">
+
+    @* チャットエリア *@
+    <div class="chat-container">
+
+        @if (Model != null)
+        {
+            foreach (MessageListItem listItem in Model.MessageList)
+            {
+                if (listItem.From == MessageFrom.MySelf)
+                {
+                    @* 自身が送信したメッセージ *@
+                    <div class="message sent">
+                        <img src="~/img/chat/default_image/kkrn_icon_user_1.png" alt="my icon">
+                        <p>@listItem.Message</p>
+                    </div>
+                }
+                else
+                {
+                    @* 他人から受信したメッセージ *@
+                    <div class="message received">
+                        <img src="~/img/chat/default_image/kkrn_icon_user_4.png" alt="user icon">
+                        <p>@listItem.Message</p>
+                    </div>
+                }
+            }
+
+        }
+    </div>
+
+    @* メッセージ入力エリア *@
+    <div class="input-container">
+        @using (Html.BeginForm("SendMessage", "SimpleChat", FormMethod.Post, new { id = "InputForm" }))
+        {
+            <intput type="hidden" id="InputUserName" name="InputUserName" value="わたし" />
+            <input type="text" id="message-input" name="InputMessage" placeholder="メッセージ...">
+            <button id="send-button" onclick="$('#InputForm').submit()">送信</button>
+        }
+    </div>
+            
+</div>
+
+
+@*<div>
     @using (Html.BeginForm("SendMessage", "SimpleChat", FormMethod.Post, new { id = "InputForm" }))
     {
         <div class="row g-3 align-items-center">
@@ -53,4 +96,4 @@
     }
 
 
-</div>
+</div>*@

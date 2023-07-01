@@ -1,0 +1,120 @@
+/* ========== チャットフィールドCSS ========== */
+.main-container {
+    width: 600px;
+    height: 600px;
+}
+
+.chat-container {
+    height: 100%;
+    background-color: #d8ecff;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+    max-width: 80%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.message img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.message p {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #e5e5ea;
+    border-radius: 10px;
+}
+
+.sent {
+    flex-direction: row-reverse;
+}
+
+.sent p {
+    background-color: #0b93f6;
+    color: white;
+    margin-right: 10px;
+}
+
+.sent p::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #0b93f6;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
+.receive p::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #e5e5ea;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+}
+
+/* スクロールバー全体 */
+::-webkit-scrollbar {
+    width: 12px;
+}
+/* スクロールバーのトラック（背景） */
+::-webkit-scrollbar-track {
+    background: #e1e1ff;
+}
+/* スクロールバーのハンドル（動く部分） */
+::-webkit-scrollbar-thumb {
+    background: #88F;
+}
+/* ハンドルをホバーしたとき */
+::-webkit-scrollbar-thumb:hover {
+    background: #55d;
+}
+
+/* ========== メッセージ入力フィールドCSS ========== */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 0px 0px;
+    width: 100%;
+    background-color: #fff;
+}
+
+#message-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#send-button {
+    padding: 5px 10px;
+    background-color: #0b93f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #0885c2;
+}

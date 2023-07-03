@@ -6,6 +6,12 @@
     [Serializable]
     public class SimpleChatViewModel
     {
+
+        /// <summary>
+        /// ユーザ名入力ダイアログを表示するか
+        /// </summary>
+        public bool EnableUseNameDialog { get; set; }
+
         /// <summary>
         /// メッセージリスト
         /// </summary>

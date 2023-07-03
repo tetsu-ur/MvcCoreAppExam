@@ -35,6 +35,7 @@ namespace MvcCoreAppExam.Controllers
         {
             // 保存されたメッセージリストをViewModelに復元する
             this.ResumeViewModel();
+            this.viewModel.EnableUseNameDialog = true;
 
             return View(ViewName, viewModel);
         }
@@ -65,6 +66,8 @@ namespace MvcCoreAppExam.Controllers
         [HttpPost]
         public IActionResult SendMessage(string inputUserName, string inputMessage)
         {
+            this.viewModel.EnableUseNameDialog = false;
+
             // 保存されたメッセージリストをViewModelに復元する
             this.ResumeViewModel();
 

@@ -4,7 +4,14 @@
 
     .Net MVC によるシンプルなチャットアプリケーションの練習
 *@
-@{
+
+@* 画面個別スタイルシートセクション *@
+@section stylesheets {
+    <link rel="stylesheet" href="~/css/talk.css" asp-append-version="true">
+}
+@* 画面個別Javascriptセクション *@
+@section scripts {
+    <script src="~/js/SimpleChat.js" asp-append-version="true"></script>
 }
 
 <div class="main-container">
@@ -22,6 +29,7 @@
                     <div class="message sent">
                         <img src="~/img/chat/default_image/kkrn_icon_user_1.png" alt="my icon">
                         <p>@listItem.Message</p>
+                        <span class="timestamp">@DateTime.Now.ToString("HH:mm")</span>
                     </div>
                 }
                 else
@@ -30,6 +38,7 @@
                     <div class="message received">
                         <img src="~/img/chat/default_image/kkrn_icon_user_4.png" alt="user icon">
                         <p>@listItem.Message</p>
+                        <span class="timestamp">@DateTime.Now.ToString("HH:mm")</span>
                     </div>
                 }
             }
@@ -41,59 +50,25 @@
     <div class="input-container">
         @using (Html.BeginForm("SendMessage", "SimpleChat", FormMethod.Post, new { id = "InputForm" }))
         {
-            <intput type="hidden" id="InputUserName" name="InputUserName" value="わたし" />
-            <input type="text" id="message-input" name="InputMessage" placeholder="メッセージ...">
+            <input type="hidden" id="InputUserName" name="InputUserName" />
+            <input type="text" id="message-input" name="InputMessage" placeholder="メッセージ..." />
             <button id="send-button" onclick="$('#InputForm').submit()">送信</button>
         }
     </div>
-            
+
+    @* 名前入力ダイアログ *@
+    @if (Model != null && Model.EnableUseNameDialog)
+    {
+    <div id="username-dialog" class="dialog">
+        <div class="dialog-overlay"></div>
+        <div class="dialog-content">
+            <span class="dialog-message">ユーザ名を入力してください</span>
+            <input type="text" id="username-input" placeholder="ユーザ名...">
+            <button id="username-submit">決定</button>
+        </div>
+    </div>
+    }
+
 </div>
 
 
-@*<div>
-    @using (Html.BeginForm("SendMessage", "SimpleChat", FormMethod.Post, new { id = "InputForm" }))
-    {
-        <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                <label for="InputUserName" class="col-form-label">ユーザ名</label>
-            </div>
-            <div class="col-auto">
-                <input id="InputUserName" name="InputUserName" class="form-control">
-            </div>
-        </div>
-
-        <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                <label for="InputMessage" class="col-form-label">メッセージ</label>
-            </div>
-            <div class="col-auto">
-                <input id="InputMessage" name="InputMessage" class="form-control">
-            </div>
-        </div>
-        <button type="button" id="TestButton" class="btn btn-primary"
-                onclick="$('#InputForm').submit()">
-            送信
-        </button>
-    }
-
-    @if (Model != null)
-    {
-        foreach (MessageListItem listItem in Model.MessageList)
-        {
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                    <span>@listItem.SendTime</span>
-                </div>
-                <div class="col-auto">
-                    <span>@listItem.UserName</span>
-                </div>
-                <div class="col-auto">
-                    <span>@listItem.Message</span>
-                </div>
-            </div>
-        }
-
-    }
-
-
-</div>*@

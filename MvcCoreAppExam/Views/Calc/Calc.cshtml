@@ -2,12 +2,13 @@
 @*
     Calc 画面
 
-    .Net MVC によるシンプルなチャットアプリケーションの練習
+    .Net MVC によるシンプル電卓アプリケーションの練習
 *@
 @{
+    ViewData["Title"] = "電卓アプリ";
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -15,50 +16,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>電卓アプリ</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <p>電卓アプリの作成</p>
-    <table>
-        <!--液晶画面-->
-        <tr>
-            <td colspan="4"><input type="text" class="display" name="display" value="" disabled></td>
-            <!--disabled:変更不可、入力フォーカス選択などできない状態-->
-        </tr>
-        <!-- 1段目 AC C del ÷ -->
-        <tr>
-            <td><input type="button" value="AC"></td>
-            <td><input type="button" value="C"></td>
-            <td><input type="button" value="del"></td>
-            <td><input type="button" value="÷"></td>
-        </tr>
-        <!-- 2段目 789 × -->
-        <tr>
-            <td><input type="button" value="7"></td>
-            <td><input type="button" value="8"></td>
-            <td><input type="button" value="9"></td>
-            <td><input type="button" value="×"></td>
-        </tr>
-        <!-- 3段目 456 - -->
-        <tr>
-            <td><input type="button" value="4"></td>
-            <td><input type="button" value="5"></td>
-            <td><input type="button" value="6"></td>
-            <td><input type="button" value="-"></td>
-        </tr>
-        <!-- 4段目 123 + -->
-        <tr>
-            <td><input type="button" value="1"></td>
-            <td><input type="button" value="2"></td>
-            <td><input type="button" value="3"></td>
-            <td><input type="button" value="+"></td>
-        </tr>
-        <!-- 5段目 0 00 . = -->
-        <tr>
-            <td><input type="button" value="0"></td>
-            <td><input type="button" value="00"></td>
-            <td><input type="button" value="."></td>
-            <td><input type="button" value="="></td>
-        </tr>
-    </table>
-</body>
-</html>
+</head>*@
+@*<body>*@
+
+<p>電卓アプリの作成</p>
+<table>
+    <!--液晶画面-->
+    <tr>
+        <td colspan="4"><input type="text" class="display" name="display" value="" disabled></td>
+        <!--disabled:変更不可、入力フォーカス選択などできない状態-->
+    </tr>
+    <!-- 1段目 AC C del ÷ -->
+    <tr>
+        <td><input type="button" value="AC"></td>
+        <td><input type="button" value="C"></td>
+        <td><input type="button" value="del"></td>
+        <td><input type="button" value="÷"></td>
+    </tr>
+    <!-- 2段目 789 × -->
+    <tr>
+        <td><input type="button" value="7"></td>
+        <td><input type="button" value="8"></td>
+        <td><input type="button" value="9"></td>
+        <td><input type="button" value="×"></td>
+    </tr>
+    <!-- 3段目 456 - -->
+    <tr>
+        <td><input type="button" value="4"></td>
+        <td><input type="button" value="5"></td>
+        <td><input type="button" value="6"></td>
+        <td><input type="button" value="-"></td>
+    </tr>
+    <!-- 4段目 123 + -->
+    <tr>
+        <td><input type="button" value="1"></td>
+        <td><input type="button" value="2"></td>
+        <td><input type="button" value="3"></td>
+        <td><input type="button" value="+"></td>
+    </tr>
+    <!-- 5段目 0 00 . = -->
+    <tr>
+        <td><input type="button" value="0"></td>
+        <td><input type="button" value="00"></td>
+        <td><input type="button" value="."></td>
+        <td><input type="button" value="="></td>
+    </tr>
+</table>
+@*</body>*@
+@*</html>*@

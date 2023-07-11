@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+p{
+  color: royalblue;
+}
+
+/*テーブル*/
+table{
+  /*電卓サイズ*/
+  width: 300px;
+  height: 400px;
+  /*電卓全体の枠*/
+  border: solid 1px;
+}
+/*ディスプレイ*/
+.display{
+  width: 284px;
+  text-align: right;
+}
+/*ボタン*/
+input{
+  width: 70px;
+  height: 70px;
+  /*ボタン文字サイズ*/
+  font-size: x-large;
+}

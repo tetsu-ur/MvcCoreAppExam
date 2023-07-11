@@ -33,10 +33,9 @@ namespace MvcCoreAppExam.Controllers
         [ActionName("Index")]
         public IActionResult Index()
         {
-            // 保存されたメッセージリストをViewModelに復元する
-            this.ResumeViewModel();
-
-            return View(ViewName, viewModel);
+            return View(ViewName);
         }
+
+
     }
 }

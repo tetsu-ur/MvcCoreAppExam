@@ -1,24 +1,8 @@
-@model MvcCoreAppExam.Models.CalcViewModel
-@*
-    Calc 画面
-
-    .Net MVC によるシンプル電卓アプリケーションの練習
-*@
-@{
-    ViewData["Title"] = "電卓アプリ";
+﻿@{
 }
-
-@*<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電卓アプリ</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>*@
-@*<body>*@
-
+@*@section Styles {
+    @RenderSection("Styles", required: false)
+}*@
 <p>電卓アプリの作成</p>
 <table>
     <!--液晶画面-->
@@ -62,5 +46,3 @@
         <td><input type="button" value="="></td>
     </tr>
 </table>
-@*</body>*@
-@*</html>*@

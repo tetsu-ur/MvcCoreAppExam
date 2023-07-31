@@ -1,48 +1,57 @@
 ﻿@{
 }
-@section scripts {
+
+@* 画面個別スタイルシートセクション *@
+@section stylesheets {
     <link rel="stylesheet" href="~/css/calc.css" asp-append-version="true">
 }
+@* 画面個別Javascriptセクション *@
+@section scripts {
+    <script src="~/js/Calc.js" asp-append-version="true"></script>
+}
+
 <p>電卓アプリの作成</p>
-<table>
-    <!--液晶画面-->
-    <tr>
-        <td colspan="4"><input type="text" class="display" name="display" value="" disabled></td>
-        <!--disabled:変更不可、入力フォーカス選択などできない状態-->
-    </tr>
-    <!-- 1段目 AC C del ÷ -->
-    <tr>
-        <td><input type="button" value="AC"></td>
-        <td><input type="button" value="C"></td>
-        <td><input type="button" value="del"></td>
-        <td><input type="button" value="÷"></td>
-    </tr>
-    <!-- 2段目 789 × -->
-    <tr>
-        <td><input type="button" value="7"></td>
-        <td><input type="button" value="8"></td>
-        <td><input type="button" value="9"></td>
-        <td><input type="button" value="×"></td>
-    </tr>
-    <!-- 3段目 456 - -->
-    <tr>
-        <td><input type="button" value="4"></td>
-        <td><input type="button" value="5"></td>
-        <td><input type="button" value="6"></td>
-        <td><input type="button" value="-"></td>
-    </tr>
-    <!-- 4段目 123 + -->
-    <tr>
-        <td><input type="button" value="1"></td>
-        <td><input type="button" value="2"></td>
-        <td><input type="button" value="3"></td>
-        <td><input type="button" value="+"></td>
-    </tr>
-    <!-- 5段目 0 00 . = -->
-    <tr>
-        <td><input type="button" value="0"></td>
-        <td><input type="button" value="00"></td>
-        <td><input type="button" value="."></td>
-        <td><input type="button" value="="></td>
-    </tr>
-</table>
+<form name="dentaku">
+    <table>
+        <!--液晶画面-->
+        <tr>
+            <td colspan="4"><input type="text" class="display" id="display" name="display" value="" disabled></td>
+            <!--disabled:変更不可、入力フォーカス選択などできない状態-->
+        </tr>
+        <!-- 1段目 AC C del ÷ -->
+        <tr>
+            <td><input type="button" value="AC" onclick="get_calc(this)"></td>
+            <td><input type="button" value="C" onclick="get_calc(this)"></td>
+            <td><input type="button" value="del" onclick="get_calc(this)"></td>
+            <td><input type="button" value="÷" onclick="get_calc(this)"></td>
+        </tr>
+        <!-- 2段目 789 × -->
+        <tr>
+            <td><input type="button" value="7" onclick="get_calc(this)"></td>
+            <td><input type="button" value="8" onclick="get_calc(this)"></td>
+            <td><input type="button" value="9" onclick="get_calc(this)"></td>
+            <td><input type="button" value="×" onclick="get_calc(this)"></td>
+        </tr>
+        <!-- 3段目 456 - -->
+        <tr>
+            <td><input type="button" value="4" onclick="get_calc(this)"></td>
+            <td><input type="button" value="5" onclick="get_calc(this)"></td>
+            <td><input type="button" value="6" onclick="get_calc(this)"></td>
+            <td><input type="button" value="-" onclick="get_calc(this)"></td>
+        </tr>
+        <!-- 4段目 123 + -->
+        <tr>
+            <td><input type="button" value="1" onclick="get_calc(this)"></td>
+            <td><input type="button" value="2" onclick="get_calc(this)"></td>
+            <td><input type="button" value="3" onclick="get_calc(this)"></td>
+            <td><input type="button" value="+" onclick="get_calc(this)"></td>
+        </tr>
+        <!-- 5段目 0 00 . = -->
+        <tr>
+            <td><input type="button" value="0" onclick="get_calc(this)"></td>
+            <td><input type="button" value="00" onclick="get_calc(this)"></td>
+            <td><input type="button" value="." onclick="get_calc(this)"></td>
+            <td><input type="button" value="=" onclick="get_calc(this)"></td>
+        </tr>
+    </table>
+</form>

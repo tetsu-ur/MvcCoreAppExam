@@ -54,6 +54,9 @@ function get_calc(button) {
             } else if (button.value == "+" || button.value == "-" || button.value == "÷" || button.value == "×") {
                 //画面上の末が記号だったとき記号は押せない
                 return;
+            } else if (button.value == ".") {
+                document.dentaku.display.value += "0."
+            
             } else {
                 //画面への表示
                 document.dentaku.display.value += btn;

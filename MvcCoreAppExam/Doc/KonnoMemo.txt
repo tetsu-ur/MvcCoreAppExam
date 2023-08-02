@@ -1,0 +1,46 @@
+﻿
+■ 10 + 20 x 3 を計算する場合のCalcViewModelの値の動き
+
+0. 初期状態
+   InputValues = "", TotalValue = 0, PreviousOperator = null, DisplayValue = "0"
+
+1. 「1」ボタンが押下される
+   InputValues = "1", TotalValue = 0, PreviousOperator = null, DisplayValue = "1"
+
+2. 「0」ボタンが押下される
+   InputValues = "10", TotalValue = 0, PreviousOperator = null, DisplayValue = "10"
+
+3. 「+」ボタンが押下される
+   InputValues = "10+", TotalValue = 10, PreviousOperator = "+", DisplayValue = "10"
+
+4. 「2」ボタンが押下される
+   InputValues = "10+2", TotalValue = 10, PreviousOperator = "+", DisplayValue = "2"
+
+5. 「0」ボタンが押下される
+   InputValues = "10+20", TotalValue = 10, PreviousOperator = "+", DisplayValue = "20"
+
+6. 「x」ボタンが押下される
+   InputValues = "10+20x", TotalValue = 30, PreviousOperator = "x", DisplayValue = "30"
+
+7. 「3」ボタンが押下される
+   InputValues = "10+20x3", TotalValue = 30, PreviousOperator = "x", DisplayValue = "3"
+
+8. 「=」ボタンが押下される
+   InputValues = "10+20x3=", TotalValue = 90, PreviousOperator = "", DisplayValue = "90"
+
+■ サンプル修正した資材
+1. Calc.cshtml 
+	・ViewModel 定義を追加
+	・form に id を付与
+	・「1」ボタンのHTMLタグを変更
+	・hiddenタグを追加
+
+2. Calc.js
+	・submitInputKey メソッドを実装
+
+3. CalcViewModel.cs
+	・計算に必要なプロパティを追加
+
+4. CalcController.cs
+	・計算に必要なアクションメソッドのうち一部を実装
+	・TempData復元メソッドを実装

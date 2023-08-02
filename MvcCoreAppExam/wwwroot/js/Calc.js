@@ -74,3 +74,22 @@ function keisan(obj) {
     //() を使って、生成された関数を即時に実行する
     return new Function('return (' + obj + ')')();
 }
+
+
+/**
+ * 入力されたキーの値をHiddenタグ「ClickedValue」に設定してsubmitする
+ *
+ * @param {string} actionUrl - アクションURL
+ * @param {object} objInput - 押下されたボタンのエレメント
+ */
+function submitInputKey(actionUrl, objInput) {
+    // 押下されたボタンの値をHiddenタグ「InputKey」にセット
+    let ObjInputkey = document.getElementById('ClickedValue');
+    ObjInputkey.value = objInput.value;
+
+    // コントローラへSubmit
+    let objForm = document.getElementById('dentaku');
+    objForm.method = 'POST';
+    objForm.action = actionUrl;
+    objForm.submit();
+}

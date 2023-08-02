@@ -1,4 +1,7 @@
-﻿@{
+﻿@*このページで使用するViewModelを定義*@
+@model MvcCoreAppExam.Models.CalcViewModel
+
+@{
 }
 
 @* 画面個別スタイルシートセクション *@
@@ -11,11 +14,11 @@
 }
 
 <p>電卓アプリの作成</p>
-<form name="dentaku">
+<form name="dentaku" id="dentaku">
     <table>
         <!--液晶画面-->
         <tr>
-            <td colspan="4"><input type="text" class="display" name="display" value="" disabled></td>
+            <td colspan="4"><input type="text" class="display" name="display" value="@Model.DisplayValue" disabled></td>
             <!--disabled:変更不可、入力フォーカス選択などできない状態-->
         </tr>
         <!-- 1段目 AC C del ÷ -->
@@ -41,7 +44,13 @@
         </tr>
         <!-- 4段目 123 + -->
         <tr>
-            <td><input type="button" value="1" onclick="get_calc(this)"></td>
+            id="username-submit"
+            <td>
+                @*アクションURLを「Url#Action」メソッドで生成する必要があるため少々冗長だがこのように定義する*@
+                <input type="button" value="1" name="key1"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            @*<td><input type="button" value="1" onclick="get_calc(this)"></td>*@
             <td><input type="button" value="2" onclick="get_calc(this)"></td>
             <td><input type="button" value="3" onclick="get_calc(this)"></td>
             <td><input type="button" value="+" onclick="get_calc(this)"></td>
@@ -54,4 +63,8 @@
             <td><input type="button" value="=" onclick="get_calc(this)"></td>
         </tr>
     </table>
+
+    @*button で押下された値を格納するエレメント*@
+    @*押された値をここに格納しないとコントローラに送られない！*@
+    <input type="hidden" id="ClickedValue" name="ClickedValue" />
 </form>

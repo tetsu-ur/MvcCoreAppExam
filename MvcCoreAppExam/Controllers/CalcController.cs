@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcCoreAppExam.Models;
 using Newtonsoft.Json;
+
 using System.Diagnostics;
+using System.Reflection;
 
 namespace MvcCoreAppExam.Controllers
 {
@@ -23,6 +25,7 @@ namespace MvcCoreAppExam.Controllers
         public CalcController(ILogger<HomeController> logger)
         {
             this.viewModel = new CalcViewModel();
+
             _logger = logger;
         }
 
@@ -46,13 +49,12 @@ namespace MvcCoreAppExam.Controllers
             // TempDataに保存されたViewModelを復元する
             this.ResumeViewModel();
             // 入力された数値を結合する
-            this.viewModel.InputValues += clickedValue;
+            this.viewModel.InputValues += clickedValue;            
             // 表示用の値を設定する
             this.viewModel.DisplayValue = this.viewModel.InputValues;
             // ViewModelを次回の処理用にTempDataに保存
             TempData["CalcViewModel"] = JsonConvert.SerializeObject(viewModel);
-
-            // Viewに返却
+            // Viewに返却　　　　　　　　　
             return View(ViewName, this.viewModel);
         }
 
@@ -67,7 +69,60 @@ namespace MvcCoreAppExam.Controllers
         /// <returns></returns>
         public IActionResult InputOperator(string clickedValue)
         {
-            throw new NotSupportedException("まだ実装していません。実装よろしく。");
+            //押した記号で処理を分けていく
+            //CならInputValuesを0にする
+            if (clickedValue == "C")
+            {
+                // TempDataに保存されたViewModelを復元する
+                this.ResumeViewModel();
+                this.viewModel.InputValues = "0";
+            } else
+            {
+                //演算子に値が入っていなかったら画面の数字をTotalValueに保存する
+                if (string.IsNullOrEmpty(this.viewModel.PreviousOperator))
+                {
+                    // TempDataに保存されたViewModelを復元する
+                    this.ResumeViewModel();
+                    //これまでの計算の合計値に値を格納する
+                    this.viewModel.TotalValue = this.viewModel.InputValues;
+                    // 入力された数値を結合する
+                    this.viewModel.InputValues += clickedValue;
+                    //直近で入力された演算子を記録する
+                    this.viewModel.PreviousOperator = clickedValue;
+                    
+                }
+                //直近で入力された演算子に値が入っていたら計算する
+                else
+                {
+                    if (this.viewModel.PreviousOperator == "+")
+                    {
+                        //TotalValue＋DisplayValue
+                        this.viewModel.TotalValue += this.viewModel.DisplayValue;
+
+                    } else if (this.viewModel.PreviousOperator == "-")
+                    {
+                        //TotalValue-DisplayValue
+                        this.viewModel.TotalValue = this.viewModel.TotalValue - this.viewModel.DisplayValue;
+                    } else if (this.viewModel.PreviousOperator == "×")
+                    {
+                        //TotalValue×DisplayValue
+                        this.viewModel.TotalValue = this.viewModel.TotalValue * this.viewModel.DisplayValue;
+                    }
+                    else if (this.viewModel.PreviousOperator == "÷")
+                    {
+                        //TotalValue÷DisplayValue
+                        this.viewModel.TotalValue = this.viewModel.TotalValue / this.viewModel.DisplayValue;
+                    }
+                }
+            }
+            // 表示用の値を設定する
+            this.viewModel.DisplayValue = this.viewModel.TotalValue;
+            // ViewModelを次回の処理用にTempDataに保存
+            TempData["CalcViewModel"] = JsonConvert.SerializeObject(viewModel);
+
+            // Viewに返却　　　　　　　　　
+            return View(ViewName, this.viewModel);
+            //押した記号で処理を分けていく
         }
 
         /// <summary>

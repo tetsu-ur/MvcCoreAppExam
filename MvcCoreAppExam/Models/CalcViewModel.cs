@@ -7,11 +7,6 @@
     public class CalcViewModel
     {
 
-        /// <summary>
-        /// メッセージリスト ※チャットの内容を引用
-        /// </summary>
-        public List<MessageListItem> MessageList { get; set; } = new List<MessageListItem>();
-
         /// <summary>これまでに入力された値</summary>
         public string? InputValues { get; set; } = string.Empty;
 

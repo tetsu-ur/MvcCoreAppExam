@@ -25,42 +25,92 @@
         <tr>
 @*          <td><input type="button" value="AC" onclick="get_calc(this)"></td>
             <td><input type="button" value="C" onclick="get_calc(this)"></td>*@
-            <td colspan="3"><input type="button" id="c_button" value="C" onclick="get_calc(this)"></td>
-            <td><input type="button" value="÷" onclick="get_calc(this)"></td>
+            <td colspan="3">
+                <input type="button" id="c_button" value="C" name="operatorC"
+                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="÷" name="operator÷"
+                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+            </td>
         </tr>
         <!-- 2段目 789 × -->
         <tr>
-            <td><input type="button" value="7" onclick="get_calc(this)"></td>
-            <td><input type="button" value="8" onclick="get_calc(this)"></td>
-            <td><input type="button" value="9" onclick="get_calc(this)"></td>
-            <td><input type="button" value="×" onclick="get_calc(this)"></td>
+            <td>
+                <input type="button" value="7" name="key7"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="8" name="key8"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+                        <td>
+                <input type="button" value="9" name="key9"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+                        <td>
+                <input type="button" value="×" name="operator×"
+                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+            </td>
         </tr>
         <!-- 3段目 456 - -->
         <tr>
-            <td><input type="button" value="4" onclick="get_calc(this)"></td>
-            <td><input type="button" value="5" onclick="get_calc(this)"></td>
-            <td><input type="button" value="6" onclick="get_calc(this)"></td>
-            <td><input type="button" value="-" onclick="get_calc(this)"></td>
+            <td>
+                <input type="button" value="4" name="key4"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="5" name="key5"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="6" name="key6"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="-" name="operator-"
+                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+            </td>
         </tr>
         <!-- 4段目 123 + -->
         <tr>
-            id="username-submit"
+           @* id="username-submit"*@
             <td>
                 @*アクションURLを「Url#Action」メソッドで生成する必要があるため少々冗長だがこのように定義する*@
                 <input type="button" value="1" name="key1"
                        onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
             </td>
-            @*<td><input type="button" value="1" onclick="get_calc(this)"></td>*@
-            <td><input type="button" value="2" onclick="get_calc(this)"></td>
-            <td><input type="button" value="3" onclick="get_calc(this)"></td>
-            <td><input type="button" value="+" onclick="get_calc(this)"></td>
+            <td>
+                <input type="button" value="2" name="key2"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="3" name="key3"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="+" name="operator+"
+                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+            </td>
         </tr>
         <!-- 5段目 0 00 . = -->
         <tr>
-            <td><input type="button" value="0" onclick="get_calc(this)"></td>
-            <td><input type="button" value="00" onclick="get_calc(this)"></td>
-            <td><input type="button" value="." onclick="get_calc(this)"></td>
-            <td><input type="button" value="=" onclick="get_calc(this)"></td>
+            <td>
+                <input type="button" value="0" name="key0"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="00" name="key00"
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="." name="key."
+                       onclick="submitInputKey('@Url.Action("InputKey", "Calc")',this)">
+            </td>
+            <td>
+                <input type="button" value="=" name="operator="
+                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+            </td>
         </tr>
     </table>
 

@@ -94,3 +94,14 @@ function submitInputKey(actionUrl, objInput) {
     objForm.action = actionUrl;
     objForm.submit();
 }
+//function submitOperator(actionUrl, objOperator) {
+//    // 押下されたボタンの値をHiddenタグ「InputKey」にセット
+//    let ObjOperator = document.getElementById('ClickedOperator');
+//    ObjOperator.value = objOperator.value;
+
+//    // コントローラへSubmit
+//    let objForm = document.getElementById('dentaku');
+//    objForm.method = 'POST';
+//    objForm.action = actionUrl;
+//    objForm.submit();
+//}

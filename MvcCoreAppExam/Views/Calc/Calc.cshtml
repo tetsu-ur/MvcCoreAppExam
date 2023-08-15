@@ -109,7 +109,7 @@
             </td>
             <td>
                 <input type="button" value="=" name="operator="
-                       onclick="submitInputKey('@Url.Action("InputOperator", "Calc")',this)">
+                       onclick="submitInputKey('@Url.Action("InputEqual", "Calc")',this)">
             </td>
         </tr>
     </table>
@@ -117,4 +117,5 @@
     @*button で押下された値を格納するエレメント*@
     @*押された値をここに格納しないとコントローラに送られない！*@
     <input type="hidden" id="ClickedValue" name="ClickedValue" />
+@*    <input type="hidden" id="ClickedOperator" name="ClickedOperator" />*@
 </form>

@@ -3,6 +3,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// ƒƒOo—Íİ’è
+log4net.Config.XmlConfigurator.Configure();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

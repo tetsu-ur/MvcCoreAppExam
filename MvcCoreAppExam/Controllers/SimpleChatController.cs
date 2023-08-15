@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using log4net;
+using Microsoft.AspNetCore.Mvc;
 using MvcCoreAppExam.Models;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -10,7 +11,7 @@ namespace MvcCoreAppExam.Controllers
     /// </summary>
     public class SimpleChatController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private static readonly ILog Log = LogManager.GetLogger(typeof(SimpleChatController));
 
         private const string ViewName = "SimpleChat";
 
@@ -20,10 +21,9 @@ namespace MvcCoreAppExam.Controllers
         /// コンストラクタ
         /// </summary>
         /// <param name="logger"></param>
-        public SimpleChatController(ILogger<HomeController> logger)
+        public SimpleChatController()
         {
             this.viewModel = new SimpleChatViewModel();
-            _logger = logger;
         }
 
         /// <summary>
@@ -33,6 +33,8 @@ namespace MvcCoreAppExam.Controllers
         [ActionName("Index")]
         public IActionResult Index()
         {
+            Log.Debug("デバッグメッセージ");
+            Log.Info("インフォメーションメッセージ");
             // 保存されたメッセージリストをViewModelに復元する
             this.ResumeViewModel();
             this.viewModel.EnableUseNameDialog = true;
